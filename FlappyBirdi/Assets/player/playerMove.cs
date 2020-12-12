@@ -6,18 +6,28 @@ public class playerMove : MonoBehaviour
 {
     public Rigidbody rb;
     public Transform tr;
+    public bool a = false;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
     }
 
     void Update()
     {
-        double vel = rb.velocity.y;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space))
         {
-            rb.AddForce(Vector3.up * (10 - rb.velocity.y), ForceMode.Impulse);
+            a = true;
+        }
+        if (a == false)
+        {
+            tr.position = new Vector3 (-5,10,0); 
+        }
+        if (a)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                rb.AddForce(Vector3.up * (10 - rb.velocity.y), ForceMode.Impulse);
+            }    
         }
     }
 }
