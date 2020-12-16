@@ -9,5 +9,6 @@ public class camMove : MonoBehaviour
         p.y = transform.position.y;
         p.z = transform.position.z;
         transform.position = p;
+        GameObject.Find("Cube").SetActive(false);
     }
 }

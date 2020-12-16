@@ -11,7 +11,7 @@ public class pipeMove : MonoBehaviour
     void Start()
     {
         Vector3 position = transform.position;
-        position.y = Random.Range(-1.5F, 2.5F);
+        position.y = Random.Range(-2F, 3F);
         transform.position = position;
         Destroy(gameObject, 6.0F);
     }

@@ -21,27 +21,23 @@ public class playerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         StartCoroutine(GeneratePipes());
     }
+    
     IEnumerator GeneratePipes()
     {
-        
-            Vector2 position;
-            while(true)
-            {
-                if (a)
-                {
-                    position = transform.position;
-                    position.x += 25.0F;
-                    Instantiate(pipes, position, Quaternion.identity);
-                    yield return new WaitForSeconds(2.0F);
-                }
-            }
+        Vector2 position;
+        while(true)
+        {
+            position = transform.position;
+            position.x += 25.0F;
+            Instantiate(pipes, position, Quaternion.identity);
+            yield return new WaitForSeconds(2.0F);
+        }
     }
     void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space))
         {
             a = true;
-            Debug.Log("ШАПАЛАХ");
         }
         if (a == false)
         {
