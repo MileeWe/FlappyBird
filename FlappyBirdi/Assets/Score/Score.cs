@@ -8,11 +8,13 @@ public class Score : MonoBehaviour
     [SerializeField]
     private Text scoreText;
     public int score = 0;
-    void OnTriggerEnter(Collision col) 
+    void OnTriggerEnter(Collider col) 
     { 
-        if (col.collider.tag == "Score")
+        Debug.Log("ЧАПАЛАХ");
+        if (col.tag == "Score")
         {
             score++;
+            Debug.Log("ЧАПАЛАХ");
         }
     }
     void Start()

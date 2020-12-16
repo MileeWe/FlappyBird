@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class road : MonoBehaviour
 {
-    
+    public Transform roadMove;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +14,10 @@ public class road : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(tag == "Dor")
+        roadMove.position += new Vector3(-10*Time.deltaTime,0,0);
+        if (roadMove.position.x == -14)
         {
-            transform.position += new Vector3 (1,0,0);
+            roadMove.position = new Vector3(26,0,0);
         }
     }
 }
