@@ -7,6 +7,7 @@ public class pipeMove : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     private float speed;
+    
     void Start()
     {
         Vector3 position = transform.position;
