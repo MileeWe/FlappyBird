@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dor
   - Score
+  - DorM
   layers:
   - Default
   - TransparentFX

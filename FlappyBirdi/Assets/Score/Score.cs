@@ -10,11 +10,9 @@ public class Score : MonoBehaviour
     public int score = 0;
     void OnTriggerEnter(Collider col) 
     { 
-        Debug.Log("ЧАПАЛАХ");
         if (col.tag == "Score")
         {
             score++;
-            Debug.Log("ЧАПАЛАХ");
         }
     }
     void Start()

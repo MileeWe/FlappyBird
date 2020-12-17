@@ -8,6 +8,7 @@ public class playerMove : MonoBehaviour
     public GameObject pipes;
     public Rigidbody rb;
     public Transform tr;
+
     public bool a = false;
     void OnCollisionEnter(Collision col) 
     { 
@@ -20,6 +21,7 @@ public class playerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         StartCoroutine(GeneratePipes());
+        Quaternion rotation = Quaternion.Euler(0, 60, 0);
     }
     
     IEnumerator GeneratePipes()
@@ -48,7 +50,7 @@ public class playerMove : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
             {
                 rb.AddForce(Vector3.up * (10 - rb.velocity.y), ForceMode.Impulse);
-            }    
+            } 
         }
     }
 }
