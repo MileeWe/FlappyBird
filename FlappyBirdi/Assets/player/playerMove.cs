@@ -33,8 +33,7 @@ public class playerMove : MonoBehaviour
         {
             
             position = transform.position;
-            position.x += distance_to_pipe;
-            distance_to_pipe -= 2f;
+            position.x += 25.0F; 
             if (a)
             {
                 Instantiate(pipes, position, Quaternion.identity);
@@ -60,9 +59,9 @@ public class playerMove : MonoBehaviour
         {
             rot = 30;
         }
-        if (rot < -90)
+        if (rot < -80)
         {
-            rot = -90;
+            rot = -80;
         }
         if (a)
         {
