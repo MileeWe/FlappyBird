@@ -5,23 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class playerMove : MonoBehaviour
 {
+    public GameObject dead;
+    bool isDead = false;
     public GameObject pipes;
     public Rigidbody rb;
     public Transform tr;
-
-    public GameObject go;
-
     public bool a = false;
     public float c = 2.0f;
+
+    public void PlayPressed()
+    {
+        SceneManager.LoadScene("Scene0");
+    }
+
     void OnCollisionEnter(Collision col) 
     { 
         if (col.collider.tag == "Dor")
         {
-            SceneManager.LoadScene(1);
+            //SceneManager.LoadScene(1);
+            dead.SetActive(true);
+            isDead = true;
+            
         }
     }
+
+    public void RePressed()
+    {
+        isDead = false;
+        SceneManager.LoadScene("Scene0");
+    }
+
     void Start()
     {
+        dead.SetActive(false);
         rb = GetComponent<Rigidbody>();
         StartCoroutine(GeneratePipes());
     }
@@ -46,9 +62,18 @@ public class playerMove : MonoBehaviour
         }
     }
     float rot = 0;
-    float rot_increment = 3f;
+    float rot_increment = 2f;
     void Update()
     {
+        if(isDead == false)
+        {
+            Time.timeScale = 1;
+            dead.SetActive(false);
+        }
+        if(isDead)
+        {
+            Time.timeScale = 0;
+        }
         if (rb.velocity.y <= 0 && rot_increment > 0)
         {
             rot_increment = -1;
