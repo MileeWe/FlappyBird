@@ -12,12 +12,12 @@ public class playerMove : MonoBehaviour
     public GameObject go;
 
     public bool a = false;
-    float distance_to_pipe = 25f;
+    public float c = 2.0f;
     void OnCollisionEnter(Collision col) 
     { 
         if (col.collider.tag == "Dor")
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
     void Start()
@@ -31,7 +31,10 @@ public class playerMove : MonoBehaviour
         Vector2 position;
         while(true)
         {
-            
+            if(c > 0.8F)
+            {
+                c -= 0.02f;
+            }
             position = transform.position;
             position.x += 25.0F; 
             if (a)
@@ -39,7 +42,7 @@ public class playerMove : MonoBehaviour
                 Instantiate(pipes, position, Quaternion.identity);
             }
             
-            yield return new WaitForSeconds(2.0F);
+            yield return new WaitForSeconds(c);
         }
     }
     float rot = 0;
@@ -71,7 +74,6 @@ public class playerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space))
         {
             a = true;
-            //go.SetActive(false);
         }
         if (a == false)
         {
